@@ -1,10 +1,10 @@
 from pathlib import os
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 
-from rest_framework import permissions
+from rest_framework import permissions, routers
 from rest_framework.urlpatterns import format_suffix_patterns
 
 from django.conf.urls.static import static
@@ -13,6 +13,7 @@ from drf_yasg import openapi
 
 from dotenv import load_dotenv
 
+from user.views import UserView
 
 load_dotenv()
 
@@ -29,9 +30,11 @@ schema_view = get_schema_view(
    public=True,
    permission_classes=[permissions.AllowAny],
 )
+api_router = routers.DefaultRouter()
 
 urlpatterns = [
     path(os.environ.get('ADMIN_URL'), admin.site.urls),
+    path('user/', UserView.as_view(), name='user_view'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
@@ -43,5 +46,3 @@ docs_urls = (
 
 
 urlpatterns += docs_urls
-
-urlpatterns = format_suffix_patterns(urlpatterns, allowed=['json', 'html'])

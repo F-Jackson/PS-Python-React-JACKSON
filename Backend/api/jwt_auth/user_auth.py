@@ -1,15 +1,16 @@
 from django.contrib.auth.models import User
 
 from jwt_auth.logic.verify_client_token import ClientTokenVerifier
+from jwt_auth.serializers import SToken
 
 
-def verify_user_auth(request, get_user: bool = False) -> None | list[str, [User]]:
+def verify_user_auth(request, get_user: bool = False) -> None | list[SToken, [User]]:
     """
         Verify jwt auth
         If Jwt is valid return a list[token[user_instance]]
     """
 
-    token = str(request.META.get('jwtToken'))
+    token = str(request.META.get('HTTP_jwtToken'))
     if token:
         jwt = ClientTokenVerifier(token)
         jwt_is_valid = jwt.valid_client_token()
