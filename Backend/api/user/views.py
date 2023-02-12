@@ -4,8 +4,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from jwt_auth.serializers import SToken
-from jwt_auth.user_auth import verify_user_auth
-from user.logic.user import invalid_token, UserHandler
+from jwt_auth.user_auth import verify_user_auth, invalid_token
+from user.logic.user import UserHandler
 from user.serializers import SUser
 
 

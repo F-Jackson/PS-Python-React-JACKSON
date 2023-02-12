@@ -131,7 +131,3 @@ class UserHandler(_UserAutheticator, _UserCreationValidator):
                                         status.HTTP_503_SERVICE_UNAVAILABLE)
             else:
                 return Response({'token': client_token}, status=status.HTTP_200_OK)
-
-
-def invalid_token() -> Response:
-    return Response({'error': 'Invalid jwt token'}, status=status.HTTP_401_UNAUTHORIZED)

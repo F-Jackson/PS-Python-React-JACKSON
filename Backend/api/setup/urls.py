@@ -1,11 +1,10 @@
 from pathlib import os
 
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 from django.conf import settings
 
 from rest_framework import permissions, routers
-from rest_framework.urlpatterns import format_suffix_patterns
 
 from django.conf.urls.static import static
 from drf_yasg.views import get_schema_view
@@ -13,6 +12,9 @@ from drf_yasg import openapi
 
 from dotenv import load_dotenv
 
+from games.views import GameListView, GameSingleView
+from payment.views import PriceCheckerViewSet, PaymentViewSet
+from product_cart.views import ProductsCartViewset
 from user.views import UserView
 
 load_dotenv()
@@ -35,6 +37,11 @@ api_router = routers.DefaultRouter()
 urlpatterns = [
     path(os.environ.get('ADMIN_URL'), admin.site.urls),
     path('user/', UserView.as_view(), name='user_view'),
+    path('cart/', ProductsCartViewset.as_view({'get': 'list', 'post': 'create', 'delete': 'destroy'}), name='products_cart_view'),
+    path('games/', GameListView.as_view(), name='games_view'),
+    path('games/<int:pk>/', GameSingleView.as_view(), name='game_view'),
+    path('price-check/', PriceCheckerViewSet.as_view({'get': 'list'}), name='price_check_view'),
+    path('payment/', PaymentViewSet.as_view({'post': 'create'}), name='payment_view')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

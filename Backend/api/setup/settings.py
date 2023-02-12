@@ -30,7 +30,8 @@ INSTALLED_APPS = [
     'drf_yasg',
     'jwt_auth',
     'user',
-    'games'
+    'games',
+    'product_cart'
 ]
 
 MIDDLEWARE = [

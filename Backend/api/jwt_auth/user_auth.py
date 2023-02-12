@@ -1,4 +1,6 @@
 from django.contrib.auth.models import User
+from rest_framework import status
+from rest_framework.response import Response
 
 from jwt_auth.logic.verify_client_token import ClientTokenVerifier
 from jwt_auth.serializers import SToken
@@ -30,3 +32,7 @@ def verify_user_auth(request, get_user: bool = False) -> None | list[SToken, [Us
 
             return data
     return None
+
+
+def invalid_token() -> Response:
+    return Response({'error': 'Invalid jwt token'}, status=status.HTTP_401_UNAUTHORIZED)
