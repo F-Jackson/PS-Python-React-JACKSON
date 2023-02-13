@@ -12,22 +12,39 @@ Como rodar o backend:
 A Api tambem é documentada usando swagger, para acessar digite em seu navegador: http://127.0.0.1:8000/swagger/
 
 EndPoints:
+<br></br>
+
   Games:
+  <br></br>
     http://127.0.0.1:8000/games/ - ['GET'] - mostra a lista de todos os jogos no database
+    <br></br>
     http://127.0.0.1:8000/games/<game_id>/  - ['GET'] - mostra um jogo
+    <br></br>
     
   User:
+  <br></br>
     http://127.0.0.1:8000/user/ - ['GET'] - mostra as informaçoes do usuario logado
+    <br></br>
     http://127.0.0.1:8000/user/ - ['POST'] - loga o usuario
+    <br></br>
     http://127.0.0.1:8000/user/ - ['PUT'] - cria um novo usuario
-    
+    <br></br>
+ 
   Cart:
+  <br></br>
     http://127.0.0.1:8000/cart/ - ['GET'] - mostra todos os jogos no carrinho do usuario logado
+    <br></br>
     http://127.0.0.1:8000/cart/ - ['DELETE'] - remove jogos do carrinho do usuario logado
+    <br></br>
     http://127.0.0.1:8000/cart/ - ['POST'] - adiciona jogos ao carrinho do usuario logado
+    <br></br>
+    <br></br>
     
   Price Checker:
+  <br></br>
     http://127.0.0.1:8000/price-checker/ - ['GET'] - pega o valor total do jogos no carrinho do usuario logado, usando sistema de frete
+    <br></br>
     
   Payment:
+  <br></br>
     http://127.0.0.1:8000/payment/ - ['POST'] - ega o valor total do jogos no carrinho do usuario, usando sistema de frete, faz o pagamento e esvazia o carrinho do usuario logado
