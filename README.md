@@ -27,7 +27,7 @@ EndPoints:
   <br></br>
     http://127.0.0.1:8000/games/ - ['GET'] - mostra a lista de todos os jogos no database
     <br></br>
-    http://127.0.0.1:8000/games/<game_id>/  - ['GET'] - mostra um jogo
+    http://127.0.0.1:8000/games/(game_id)/  - ['GET'] - mostra um jogo
     <br></br>
     
   User:
