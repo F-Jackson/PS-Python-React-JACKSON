@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 
-from games.constants import MEGABYTE_IMAGE_SIZE_LIMIT
+from .constants import MEGABYTE_IMAGE_SIZE_LIMIT
 
 
 class GamesModel(models.Model):
