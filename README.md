@@ -4,7 +4,9 @@ Somente foi entregue o backend.
 Não pude containizar a tempo.
 
 O projeto foi feito totalmente tipado.
+
 Com autenticação feita em jwt para casos onde o servidor não consegue ultilizar o a autenticação do proprio Django, por exmplo servidores do pythonanywhere.
+
 Resolvi deixar o sistema de precos e frete no app de pagamentos, já que se fosse em uma aplicacao real o app de pagamento seria um microservico separado, então para evitar problemas com informações de precos diferentes.
 
 Como rodar o backend:
